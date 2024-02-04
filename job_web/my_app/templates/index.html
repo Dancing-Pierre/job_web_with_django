@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>基于Echarts的大数据类岗位可视化分析</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <style>
+        .t_title {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 2.5em;
+            line-height: 80px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<!--header-->
+<div class="header">
+    <div class="bg_header">
+        <div class="header_nav fl t_title">
+            基于Echarts的大数据类岗位可视化分析
+        </div>
+    </div>
+</div>
+
+<!--main-->
+<div class="data_content">
+    <div class="data_main">
+        <div class="main_left fl">
+            <div class="left_1 t_btn6" style="cursor: pointer;">
+                <div id="chart_1" class="main_table" style="width:100%;height: 280px;cursor: pointer">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>职位名称</th>
+                            <th>职位数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for col in p2 %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ col.job_name }}</td>
+                                <td>{{ col.num }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_1.png' %}" alt="">
+                    <a style="color: white">Top21岗位名称</a>
+                </div>
+            </div>
+            <div class="left_2" style="cursor: pointer;">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_2.png' %}" alt="">
+                    <a style="color: white">城市岗位需求分析</a>
+                </div>
+                <div id="chart_2" class="chart t_btn9" style="width:100%;height: 280px;">
+                    {{ p4 | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="main_center fl">
+            <div class="center_text">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_3.png' %}" alt="">
+                    <a style="color: white">岗位城市分布地图</a>
+                </div>
+                <div id="chart_map" style="width:100%;height:610px;">
+                    {{ p1 | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="main_right fr">
+            <div class="right_1">
+                <div id="chart_3" class="main_table t_btn8" style="width:100%;height: 280px;">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>类型</th>
+                            <th>数量</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for col in p3 %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ col.company_type }}</td>
+                                <td>{{ col.num }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_4.png' %} " alt="">
+                    <a style="color: white">企业类型</a>
+                </div>
+            </div>
+            <div class="right_2">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_5.png' %}" alt="">
+                    <a style="color: white">职位要求词云图</a>
+                </div>
+                <div id="chart_4" class="echart t_btn4" style="width:100%;height: 280px; padding-left: 10px">
+                    {{ p5 | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="data_bottom">
+        <div class="bottom_1 fl t_btn5" style="cursor: pointer;">
+            <!--左上边框-->
+            <div class="t_line_box">
+                <i class="t_l_line"></i>
+                <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+                <i class="t_r_line"></i>
+                <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+                <i class="l_b_line"></i>
+                <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+                <i class="r_b_line"></i>
+                <i class="b_r_line"></i>
+            </div>
+            <div class="main_title">
+                <img src="{% static 'img/t_6.png' %} " alt="">
+                <a style="color: white">薪水分布</a>
+            </div>
+            <div id="chart_5" class="echart fl" style="width:100%;height: 250px;margin-top: 15px;">
+                {{ p6 | safe }}
+            </div>
+        </div>
+        <div class="bottom_center fl">
+            <div class="bottom_2 fl">
+                <!--左上边框-->
+                <div class="t_line_box">
+                    <i class="t_l_line"></i>
+                    <i class="l_t_line"></i>
+                </div>
+                <!--右上边框-->
+                <div class="t_line_box">
+                    <i class="t_r_line"></i>
+                    <i class="r_t_line"></i>
+                </div>
+                <!--左下边框-->
+                <div class="t_line_box">
+                    <i class="l_b_line"></i>
+                    <i class="b_l_line"></i>
+                </div>
+                <!--右下边框-->
+                <div class="t_line_box">
+                    <i class="r_b_line"></i>
+                    <i class="b_r_line"></i>
+                </div>
+                <div class="main_title">
+                    <img src="{% static 'img/t_7.png' %} " alt="">
+                    <a style="color: white">城市分布</a>
+                </div>
+                <div class="t_btn8">
+                    {{ p7 | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="bottom_4 fr">
+            <!--左上边框-->
+            <div class="t_line_box">
+                <i class="t_l_line"></i>
+                <i class="l_t_line"></i>
+            </div>
+            <!--右上边框-->
+            <div class="t_line_box">
+                <i class="t_r_line"></i>
+                <i class="r_t_line"></i>
+            </div>
+            <!--左下边框-->
+            <div class="t_line_box">
+                <i class="l_b_line"></i>
+                <i class="b_l_line"></i>
+            </div>
+            <!--右下边框-->
+            <div class="t_line_box">
+                <i class="r_b_line"></i>
+                <i class="b_r_line"></i>
+            </div>
+            <div class="main_title">
+                <img src="{% static 'img/t_7.png' %}" alt="">
+                <a style="color: white">学历要求</a>
+            </div>
+            <div class="main_table t_btn3">
+                {{ p8 | safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="{% static 'js/jquery-2.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
+</html>
